@@ -1,6 +1,7 @@
 <template>
-    <div>
-        <h1>Jobs</h1>
+    <h1>Jobs</h1>
+    <div v-if="jobs.length">
+        
         <div v-for="job in jobs" :key="job.id " class="job">
             <router-link :to ="{ name : 'JobDatails', params: {id: job.id}}">
                 <h2>{{job.title}}</h2>
@@ -8,7 +9,12 @@
           
         </div>
     </div>
-
+    
+<div >
+    <svg class="animate-bounce w-6 h-6 ...">
+  <!-- ... -->
+</svg>
+</div>
 </template>
 
 <script>
@@ -18,13 +24,16 @@ export default ({
     name:"JobsView",
     data() {
         return {
-            jobs : [
-                {title: "Ux designer", id:1, detail:'lorem'},
-                {title: "Web Developer", id:2, detail:'lorem'},
-                {title: "Vue Developer", id:3, detail:'lorem'},
-            ]
+            jobs: []
         }
     },
+    mounted()
+    {
+        fetch('http://localhost:3000/jobs')
+        .then((res) => res.json())
+        .then((data) => this.jobs = data)
+        .catch((err) => console.log(err.message))
+    }
 })
 </script>
 

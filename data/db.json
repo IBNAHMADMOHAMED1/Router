@@ -1,0 +1,23 @@
+{
+    "jobs": 
+    [
+        {
+            "title": "Ux designer",
+            "id": 1,
+            "detail": "lorem"
+        },
+        {
+            "title": "Web Developer",
+            "id": 2,
+            "detail": "lorem"
+        },
+        {
+            "title": "Vue Developer",
+            "id": 3,
+            "detail": "lorem"
+        }
+    ]
+  
+    
+    
+}
